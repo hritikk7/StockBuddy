@@ -1,79 +1,78 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# The 1% Club React Native Assignment
+### Description
+   This assignment involves creating a React Native application using Real Time Finance API to fetch 
+   stock data and implement various functionalities such as login, stock search, stock details, order management, and more.
 
-# Getting Started
+### Screenshots and videos
+(Screenshot of Splash Screen, Login Screen, Main Screen, Stock Details Screen, Orders Screen)
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
 
-## Step 1: Start the Metro Server
+#### * Splash screen and login screen
+https://github.com/hritikk7/onePercentClubApp/assets/54003516/5427e58c-6b2c-4987-aa42-6d0bd72bd37a
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+####  * when user inputs invalid email or password
+<img src="https://github.com/hritikk7/onePercentClubApp/assets/54003516/b35b44d4-4bcd-4dc3-86d5-16ecb71db5af" alt="LoadingMainScreen" width="250" height="500" /> <br/>
 
-To start Metro, run the following command from the _root_ of your React Native project:
+####  * Loading State when fetching stocks
+<img src="https://github.com/hritikk7/onePercentClubApp/assets/54003516/eede96aa-963f-42e1-b236-69ca71cb0216" alt="LoadingMainScreen" width="250" height="500" /> <br/>
 
-```bash
-# using npm
-npm start
 
-# OR using Yarn
-yarn start
-```
+####  * Main Screen
+<img src="https://github.com/hritikk7/onePercentClubApp/assets/54003516/ec981ef7-7d38-4bec-8ffa-dc3afa6dfcce" alt="LoadingMainScreen" width="250" height="500" /> <br/>
 
-## Step 2: Start your Application
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+####  * Longpress on stock card
+https://github.com/hritikk7/onePercentClubApp/assets/54003516/fca046f2-cb97-4905-b6f9-5517edcc9196
 
-### For Android
 
-```bash
-# using npm
-npm run android
+####  * Pagination 
+https://github.com/hritikk7/onePercentClubApp/assets/54003516/cdd6b59c-384f-4ff8-8faa-c4880273ed77
 
-# OR using Yarn
-yarn android
-```
 
-### For iOS
+####  * Search button toggle on swipe up
+https://github.com/hritikk7/onePercentClubApp/assets/54003516/3e2b120a-ba41-4582-856f-1bad379d0b7b
 
-```bash
-# using npm
-npm run ios
 
-# OR using Yarn
-yarn ios
-```
+####  * Search for stocks 
+https://github.com/hritikk7/onePercentClubApp/assets/54003516/f1979b17-7964-4940-9219-04fd5debbc14
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+####  * Stock Details page
+<img src="https://github.com/hritikk7/onePercentClubApp/assets/54003516/84433a4d-9036-4f87-a35d-1128dec8202d" alt="LoadingMainScreen" width="250" height="500" /> <br/>
 
-## Step 3: Modifying your App
+####  * Add to order and delete in order page
+https://github.com/hritikk7/onePercentClubApp/assets/54003516/8f8004b7-1953-42dc-9799-6898c8ca1e6b
 
-Now that you have successfully run the app, let's modify it.
+####  * Open Orders page confirmed state success state
+<img src="https://github.com/hritikk7/onePercentClubApp/assets/54003516/96a7b2cd-0f5e-4130-af30-15dfa8a405a1" alt="LoadingMainScreen" width="250" height="500" /> 
+<img src="https://github.com/hritikk7/onePercentClubApp/assets/54003516/67b63ee7-9657-4d7c-9c6b-f44ca49a7209" alt="LoadingMainScreen" width="250" height="500" /> 
+<img src="https://github.com/hritikk7/onePercentClubApp/assets/54003516/3618ee07-e481-4075-b961-1f8570bba9c2" alt="LoadingMainScreen" width="250" height="500" /> 
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
 
-## Congratulations! :tada:
+### Features
++ Splash Screen: Standard Splash Screen Behavior
++ Login Screen: Standard login with email and password using Redux for global state management
++ Main Screen: Bottom sheet revealing search bar on swipe up, displaying stocks with pagination
++ Stock Cards: Displaying Stock Name, Stock Ticker, Stock Full Name, Stock Price, Price Change, and Stock Image
++ Stock Search: Search stocks based on user input
++ Stock Description: Showing description of the stock on long press
++ Stock Details Screen: Displaying basic stock details and option to add stock order
++ Orders Screen: Displaying list of added stocks with option to remove and swipe to buy functionality
++ Swipe to Buy: Placing order on swipe with success state notification
 
-You've successfully run and modified your React Native App. :partying_face:
+### API Used
++ Market Trend API: Used to fetch trending stocks with trend type as GAINER
++ Search API: Used to search stocks based on user input in the search field
 
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+### Installation
+   Clone the repository: git clone <repository-url>
+   Install dependencies: npm install
+   Run the application: npm run android
+### Usage
++ Login with valid credentials to access the main screen.
++ login credentials : email - Admin@asdf.com password - Admin
++ Swipe up to reveal the search bar and Search stocks.
++ Click on a stock card to view its details and add it to the order list.
++ Press on the delete button to delete a stock in the order list.
++ Swipe right on the swipe to buy slider in the order list to place an order.
