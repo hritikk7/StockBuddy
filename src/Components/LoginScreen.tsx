@@ -26,7 +26,9 @@ function LoginScreen({}): React.JSX.Element {
   const handleLogin = () => {
     // Simulate the login process
     console.log(email, password);
-    if (email === 'Admin@asdf.com' && password === 'Admin') {
+    const trimmedPass = password.trim()
+    const trimmedEmail = email.trim()
+    if (trimmedEmail === 'Admin@asdf.com' && trimmedPass === 'Admin') {
       // Dispatch the login action
       dispatch(login());
     } else {
