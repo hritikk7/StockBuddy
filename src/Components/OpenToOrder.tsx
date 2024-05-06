@@ -50,15 +50,8 @@ function OpenToOrder() {
 
   const dispatch = useDispatch();
   const selectedStock = useSelector(state => state.stocks.selectedStock);
-  // console.log("selectedStock in opentoorders", selectedStock);
   const orderItems = useSelector(state => state.order.orderItems);
 
-  // console.log("orderItems",orderItems);
-
-  const stockName = selectedStock ? selectedStock.name : '';
-  const stockSymbol = selectedStock ? selectedStock.symbol : '';
-  const stockPrice = selectedStock ? selectedStock.price : '';
-  const stockChangePercent = selectedStock ? selectedStock.change_percent : '';
 
   const X = useSharedValue(0);
 
@@ -74,11 +67,11 @@ function OpenToOrder() {
             style: 'cancel',
           },
         ],
-        { cancelable: false }
+        {cancelable: false},
       );
     }
   };
-  
+
   const interpolateXInput = [0, horizontalSwipeRange];
   const animatedGestureHandler = useAnimatedGestureHandler({
     onActive: e => {
@@ -89,7 +82,6 @@ function OpenToOrder() {
       runOnJS(handleSwipeEnd)();
     },
   });
-
 
   const AnimatedStyles = {
     swipeable: useAnimatedStyle(() => {
@@ -119,8 +111,7 @@ function OpenToOrder() {
     const symbolParts = item.item.symbol.split(':');
     const stockSymbolName = symbolParts[0];
     const priceChangeRounded = parseFloat(item.item.change_percent).toFixed(2);
-    
-   
+
     return (
       <View>
         <View style={styles.stockItem}>
@@ -137,7 +128,10 @@ function OpenToOrder() {
             <Text style={styles.stockFullName}>{item.item.name}</Text>
             <View style={styles.priceContainer}>
               <Text style={styles.price}>${item.item.price}</Text>
-              <Image style={styles.stockTicker} source={require('../assets/icons/upTrendIcon.png')} />
+              <Image
+                style={styles.stockTicker}
+                source={require('../assets/icons/upTrendIcon.png')}
+              />
               <Text style={styles.priceChange}>{priceChangeRounded}%</Text>
             </View>
           </View>
@@ -167,27 +161,8 @@ function OpenToOrder() {
           <Text style={styles.noOrderText}>No Orders</Text>
         </View>
       )}
-      {/* <View style={styles.orderContainer}>
-        <FlatList
-          data={orderItems}
-          renderItem={renderItem}
-          keyExtractor={(item, index) => index.toString()}
-        />
-      </View> */}
 
       <View style={styles.buttonWrapper}>
-        {/* <View style={styles.swipeButton}>
-          <PanGestureHandler onGestureEvent={animatedGestureHandler}>
-            <Animated.View
-              style={[styles.swipeCircle, AnimatedStyles.swipeable]}>
-              <Text style={styles.swipeCircleText}>{`>`}</Text>
-            </Animated.View>
-          </PanGestureHandler>
-          <Animated.Text style={[styles.swipeText]}>
-            {' '}
-            Swipe to buy{' '}
-          </Animated.Text>
-        </View> */}
         <View style={styles.buttonWrapper}>
           <PanGestureHandler onGestureEvent={animatedGestureHandler}>
             <Animated.View
@@ -222,12 +197,11 @@ const styles = StyleSheet.create({
   },
   orderContainer: {
     flex: 4,
-    // backgroundColor: 'pink',
   },
-  stockTicker:{
-    height:15,
-    width:18 ,
-   marginLeft: 5,
+  stockTicker: {
+    height: 15,
+    width: 18,
+    marginLeft: 5,
   },
   dummyText: {
     fontSize: 28,
@@ -235,7 +209,6 @@ const styles = StyleSheet.create({
   },
   buttonWrapper: {
     flex: 1,
-    // backgroundColor: 'green',
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -285,7 +258,6 @@ const styles = StyleSheet.create({
     aspectRatio: 1,
     marginRight: 15,
     marginLeft: 12,
-    // backgroundColor: 'grey',
   },
   image: {
     flex: 1,
@@ -293,7 +265,6 @@ const styles = StyleSheet.create({
   },
   textContainer: {
     flex: 1,
-    // backgroundColor: 'red',
   },
   stockName: {
     fontSize: 24,
@@ -318,8 +289,8 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#34C759',
     marginLeft: 10,
-    lineHeight: 20, 
-    fontWeight: "600",
+    lineHeight: 20,
+    fontWeight: '600',
   },
   trashBtn: {
     marginRight: 15,

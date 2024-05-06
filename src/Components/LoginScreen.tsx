@@ -14,7 +14,7 @@ import {
   Alert,
 } from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
-import { RootState } from '@reduxjs/toolkit/query';
+import {RootState} from '@reduxjs/toolkit/query';
 
 function LoginScreen({}): React.JSX.Element {
   const [email, setEmail] = useState('');
@@ -26,13 +26,13 @@ function LoginScreen({}): React.JSX.Element {
   const handleLogin = () => {
     // Simulate the login process
     console.log(email, password);
-    if (email === 'Admin' && password === 'Admin') {
+    if (email === 'Admin@asdf.com' && password === 'Admin') {
       // Dispatch the login action
       dispatch(login());
     } else {
       Alert.alert(
         'Invalid Credentials',
-        'Please enter a valid username and password',
+        'Please enter a valid Email and Password',
       );
     }
   };
@@ -79,6 +79,8 @@ function LoginScreen({}): React.JSX.Element {
           <View style={styles.input}>
             <Text style={styles.inputLabel}>Enter Password</Text>
             <TextInput
+             secureTextEntry={true}
+          
               style={styles.inputbox}
               placeholder="**********"
               keyboardType="email-address"

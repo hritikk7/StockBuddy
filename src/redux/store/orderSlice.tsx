@@ -15,6 +15,7 @@ const orderSlice = createSlice({
       state.orderItems = state.orderItems.filter(
         item => item.symbol !== action.payload,
       );
+      
     },
   },
 });

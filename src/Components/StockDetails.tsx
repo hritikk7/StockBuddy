@@ -69,9 +69,6 @@ function StockDetails() {
       </View>
       <View style={styles.formAction}>
         <TouchableOpacity
-          // onPress={() => {
-          //   navigation.navigate('Open_To_Order');
-          // }}
           onPress={handleAddToOrder}>
           <View style={styles.btn}>
             <Text style={styles.btnText}>Add to order</Text>
@@ -107,7 +104,7 @@ const styles = StyleSheet.create({
     height: 75,
     width: 75,
     resizeMode: 'contain',
-    marginRight: 15, // Add margin for spacing
+    marginRight: 15, 
   },
   price: {
     fontSize: 32,
@@ -126,7 +123,7 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
   stockDetails: {
-    flex: 1, // Take up remaining space in the row
+    flex: 1, 
   },
   title: {
     fontSize: 24,
@@ -136,7 +133,7 @@ const styles = StyleSheet.create({
   },
   stockDetailWrapper: {
     flex: 1,
-    padding: 15, // Add padding to prevent content from overflowing
+    padding: 15, 
   },
   textContainer: {
     marginBottom: 20,
@@ -148,7 +145,7 @@ const styles = StyleSheet.create({
   },
   formAction: {
     marginBottom: 16,
-    alignItems: 'center', // Center align button
+    alignItems: 'center', 
   },
   btn: {
     width: 340,

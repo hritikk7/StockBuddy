@@ -43,8 +43,6 @@ const StockCard = ({
     setStockData([item]);
   }, []);
 
-  // console.log('STOCK data state', stockData);
-
   const renderItem = ({item}) => {
     // const {name, symbol, change_percent, price} = item
     const symbolParts = item.symbol.split(':');
@@ -53,9 +51,6 @@ const StockCard = ({
     console.log('STOCK CARD items name', item.symbol);
     return (
       <TouchableOpacity
-        // onPress={() => {
-        //   navigation.navigate('Stock_Details');
-        // }}
         onPress={() => onPress(item)}
         onLongPress={toggleExpansion}>
         <View style={styles.itemContainer}>
@@ -106,21 +101,16 @@ const styles = StyleSheet.create({
   contentContainer: {
     flex: 1,
     alignItems: 'center',
-    //   marginTop: 50,
   },
   stockItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    // padding: 10,
-    // borderBottomWidth: 1,
-    // borderBottomColor: '#ccc',
   },
   imageContainer: {
     width: '20%',
     aspectRatio: 1,
     marginRight: 15,
     marginLeft: 12,
-    // backgroundColor: 'grey',
   },
   stockTicker: {
     height: 15,
@@ -171,8 +161,8 @@ const styles = StyleSheet.create({
   textContainer: {
     flex: 1,
 
-    maxWidth: '70%', // Set a maximum width for the text container
-    flexWrap: 'wrap', // Allow text to wrap within its container
+    maxWidth: '70%',
+    flexWrap: 'wrap',
   },
 
   loremText: {
@@ -181,7 +171,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   expandedContent: {
-    // paddingHorizontal: 30,
     flex: 1,
     padding: 15,
   },
@@ -189,11 +178,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: '#ccc',
     paddingTop: 12,
-    // paddingBottom: 8,
   },
-  // expandedText: {
-  //   paddingHorizontal: 20,
-  // },
 });
 
 export default StockCard;

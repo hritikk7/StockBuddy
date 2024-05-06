@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import {FlatList, StyleSheet, Text, View, Image} from 'react-native';
-import ArrowFwd from '../assets/icons/ArrowFwd.png';
 import StockCard from './StockCard';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import AntDesign from 'react-native-vector-icons/AntDesign';
@@ -73,14 +72,12 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   pagination: {
-    // backgroundColor:"red",
     flex: 2,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 50,
     minHeight : 50,
-    // backgroundColor: "red",
     paddingBottom : 10,
   },
   pages: {

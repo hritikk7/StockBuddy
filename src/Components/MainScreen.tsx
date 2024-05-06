@@ -30,25 +30,45 @@ const MainScreen = () => {
     fetchData();
   }, []);
 
+  const useDebouncedValue = (inputValue, delay) => {
+  const [debouncedValue, setDebouncedValue] = useState(inputValue);
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedValue(inputValue);
+    }, delay);
+
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [inputValue, delay]);
+
+  return debouncedValue;
+};
+
+  const debouncedStockName = useDebouncedValue(searchText, 800)
+
   const handleSheetChange = index => {
     setBottomSheetIndex(index);
   };
+
+  
 
   const fetchData = async () => {
     // Fetch data from API
     setLoading(true);
     const url = FETCH_STOCKS;
-    // 'https://real-time-finance-data.p.rapidapi.com/market-trends?trend_type=GAINERS&country=us&language=en';
     const options = {
       method: 'GET',
       headers: {
         'X-RapidAPI-Key': API_TOKEN,
         'X-RapidAPI-Host': 'real-time-finance-data.p.rapidapi.com',
       },
-    };
+    };  
     try {
       const response = await fetch(url, options);
       const json = await response.json();
+      console.log(response);
       const slicedData = json.data.trends.slice(0, 25);
       console.log('slicedData', slicedData);
       setResData(slicedData);
@@ -62,17 +82,19 @@ const MainScreen = () => {
   const searchStock = async stockName => {
     // Search for stock
     setLoading(true);
-    const url = `https://real-time-finance-data.p.rapidapi.com/search?query=${stockName}%20&language=en`;
+    const url = `https://real-time-finance-data.p.rapidapi.com/search?query=${stockName}&language=en/`
     const options = {
       method: 'GET',
       headers: {
         'X-RapidAPI-Key': API_TOKEN,
-        'X-RapidAPI-Host': 'real-time-finance-data.p.rapidapi.com',
+        'X-RapidAPI-Host': 'real-time-finance-data.p.rapidapi.com'
       },
     };
     try {
       const response = await fetch(url, options);
       const json = await response.json();
+      console.log("response", response);
+      console.log("url", API_TOKEN, options);
       const slicedSearchedData = json?.data?.stock?.slice(0, 1);
       setSearchedData(slicedSearchedData);
       // setResData(slicedSearchedData);
@@ -87,14 +109,18 @@ const MainScreen = () => {
     setSearchText(searchText);
     if (searchText.trim() !== '') {
       setShowPagination(false); // Hide pagination when searching
-      searchStock(searchText);
+      // searchStock(searchText);
     } else {
       setShowPagination(true); // Show pagination when search input is empty
       fetchData(); // Fetch initial data when search input is empty
     }
   };
+  useEffect(() => {
+    if (debouncedStockName) {
+      searchStock(debouncedStockName);
+    }
+  }, [debouncedStockName]);
 
-  console.log('bottomSheetIndex', bottomSheetIndex);
 
   return (
     <View style={styles.container}>
@@ -132,7 +158,6 @@ const MainScreen = () => {
           />
         ) : (
           <FlatList
-            // data={resData}
             data={searchedData}
             renderItem={({item}) => (
               <StockCard onPress={handleStockPress} item={item} />
@@ -167,3 +192,4 @@ const styles = StyleSheet.create({
 });
 
 export default MainScreen;
+
