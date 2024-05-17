@@ -1,6 +1,6 @@
-# The 1% Club React Native Assignment
+# StockBuddy
 ### Description
-   This assignment involves creating a React Native application using Real Time Finance API to fetch 
+   This project involves  React Native application using Real Time Finance API to fetch 
    stock data and implement various functionalities such as login, stock search, stock details, order management, and more.
 
 ### Screenshots and videos
